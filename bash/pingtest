@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+host="${1:-localhost}"
+
+if ping -c 1 "${host}" >/dev/null 2>/dev/null
+then
+   echo Host is up "${host}"
+else
+   echo Host is down "${host}"
+fi
+echo $host
+
+

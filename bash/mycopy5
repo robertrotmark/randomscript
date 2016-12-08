@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+
+#echo -n "Input filename: "
+#read original
+
+duplicate="$1".backup
+
+if cp "${original}" "${duplicate}" >/dev/null 2>/dev/null
+then
+   exitcode=$?
+   echo File "${original}" was copied to "${duplicate}"
+   
+else
+   exitcode=$?
+   echo File "${original}" was not copied.
+fi
+echo Exitcode: ${exitcode}
+exit "${exitcode}"

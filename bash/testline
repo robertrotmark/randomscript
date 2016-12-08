@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+read line < "$1"
+case "${line}" in
+  *clean*) echo "clean found in $1";;
+  *dirty*) echo "dirty found in $1";;
+  *kernel*) echo "kernel found in $1";;
+  *) echo "no keyword found in $1";;
+esac
+
+
+

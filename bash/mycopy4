@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+echo -n "Input the filename: " 
+read original
+
+duplicate="${original}.backup"
+echo ${original}
+echo ${duplicate}
+cp "$original" "$duplicate"
+echo ${original} copied to ${duplicate}
+ls -l "${duplicate}"
+

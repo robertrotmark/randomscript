@@ -1,0 +1,51 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+
+#echo -n "Input filename: "
+#read original
+
+original="/home/user/daylogs/$1"
+if [[ ! -f "${original}"  ]]
+then
+   echo File does not exist.
+#   exit 1
+fi
+if [[ ! -r "${original}" ]]
+then
+   echo Can\'t read file.
+#   exit 1
+fi
+
+duplicate="$1.backup"
+
+if [[ -f "${duplicate}" ]]
+then
+   echo "${duplicate}" already exist.
+   mv "${duplicate}" "${duplicate}.old"
+#   exit 1
+fi
+
+if [[ ! -f "${original}" || ! -r "${original}" || ! -w "${original}" || -f "${duplicate}"  ]]
+then
+   echo It fails.
+   exit 1
+fi
+
+
+if cp "${original}" "${duplicate}" >/dev/null 2>/dev/null
+then
+   exitcode=$?
+   echo File "${original}" was copied to "${duplicate}"
+   ls -l "${duplicate}"
+   
+else
+   exitcode=$?
+   echo File "${original}" was not copied.
+fi
+#echo Exitcode: ${exitcode}
+exit "${exitcode}"

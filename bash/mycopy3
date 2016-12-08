@@ -6,5 +6,6 @@ PATH=/bin:/usr/bin
 #set -v 
 
 
-
+file="$1".backup
+echo ${file}
 

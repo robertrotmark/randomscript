@@ -1,0 +1,10 @@
+# File: mycopy1.4
+# # Copy a file, version 1.4
+#
+dir=/home/user/daylogs
+file=0411
+duplicate=$(file).backup
+echo attempt to copy $dir/$file to $duplicate
+cp $dir/$file $duplicate
+echo $dir/$file copied to $duplicate
+ls -l

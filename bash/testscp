@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+for i in `find /home/user -executable -type f -ctime -1`
+do
+  echo executable "$i"
+done
+
+
+

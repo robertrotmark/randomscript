@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+
+case "$1" in
+  [wW]|who) who -a;;
+  [pP]|ps) ps aux | less;;
+  [dD]|date) date;;
+  [Ll]|ls|ll) ls -al;;
+  *) echo error command not found ; exit 1;;
+esac
+
+

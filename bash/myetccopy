@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+original=/etc
+file=$1
+duplicate=${file}.archive
+
+echo File: ${file} original: ${original} duplicate: ${duplicate} 
+echo "Parameters $#"
+echo "First parameter is $1"
+echo attempts to copy ${original}/${file} to ${duplicate}
+cp "${original}/${file}" "${duplicate}"
+echo "${original}/${file}" copied to "${duplicate}"
+ls -l ${duplicate}

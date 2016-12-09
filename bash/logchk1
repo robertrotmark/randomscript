@@ -1,0 +1,25 @@
+# File: logchk1
+
+if (( $# == 0 ))
+then
+  echo "$0 Exited on $(date) You must pass in a filename" >&2
+  exit 1
+fi
+file="$1"
+exec 3>"$file.GOOD"
+exec 4<"$file"
+exec 5>>totalerror
+
+
+while read -u4 line
+do
+  if [[ "$line" == *GOOD* || "$line" == *EXCELLENT* ]]
+  then 
+    echo "$line" >&3
+  fi
+  if [[ "$line" == *ERROR* ]]
+  then
+    echo "$line" >&5
+  fi
+done
+exec 3>&- 4<&- 5>&-

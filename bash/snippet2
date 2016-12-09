@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+
+while getopts 'nmk' option
+do
+  case "$option" in
+  *) echo "$option" "$value" ;;
+  esac
+done
+
+
+

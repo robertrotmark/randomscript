@@ -1,0 +1,8 @@
+# File: timefrom
+
+host=127.0.0.1
+exec 3< /dev/tcp/$host/13
+read -u3 line
+line="${line%[!a-zA-Z0-9: ]}"
+echo "$line on $host"
+exec 3<&-

@@ -41,6 +41,16 @@ find / -name '0411' 2>$1 | more
 
 
 
+exec 3</etc/hosts 4>greplog 5>>hostlog
 
+
+
+while getopts optionList optionVariable
+do
+  case $optionVariable in
+  n) echo n ;;
+  *) echo random ;;
+  esac
+done
 
 

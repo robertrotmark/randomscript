@@ -1,0 +1,16 @@
+# File: alltime
+
+for (( host=1; host <= 5; host++ ))
+do
+  if /bin/ping -c 1 "10.1.1.$host" > /dev/null 2>&1
+  then
+    exec 3< "/dev/tcp/10.1.1.$host/13"
+    read line <&3
+    line="${line%[!a-zA-Z0-9: ]}"
+    echo "$line on host $host"
+    exec 3<&-
+  else
+    echo "10.1.1.$host is not responding"
+  fi
+done
+

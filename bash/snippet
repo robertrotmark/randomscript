@@ -20,5 +20,18 @@ do
   who -a | grep "$user"
 done
 
+for user in $( awk -F: '{ print $1 }' /etc/passwd | sort )
+do
+  who -a | grep "$user"
+done
+
+
+
+myftp=$(sftp hostname <<myeof
+cd dir1
+mput *
+quit
+myeof)
+
 
 

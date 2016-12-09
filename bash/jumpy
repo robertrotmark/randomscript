@@ -1,0 +1,14 @@
+# File: jumpy
+
+while echo "Enter a single character"
+      read letter
+do
+  case "$letter" in
+    [0-9]) continue;;
+     [eE]) break;;
+        *) echo "This is the default;;"
+  esac
+  echo "You did not press 'e' or a digit"
+done
+echo "You pressed 'e'! Good bye."
+

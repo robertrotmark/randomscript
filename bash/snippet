@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+ff () {
+ find / -type f -name *"$1"* -ls 2>/dev/null
+}
+
+
+match=$(ff allow)
+
+
+
+
+for user in $( awk -F: '{ print $1 }' /etc/passwd | sort )
+do
+  who -a | grep "$user"
+done
+
+
+

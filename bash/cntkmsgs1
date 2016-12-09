@@ -1,0 +1,20 @@
+# File: loginid1
+file="/home/user/daylogs/$1"
+
+IFS=:
+while read day host source msgnumber msgtext
+do
+   #echo "${source}"
+   if [[ "${source}" == "kernel" ]]
+   then
+      list[ (( asize++ )) ]="${msgtext}"
+   fi
+done < "${file}"
+
+for text in "${list[@]}"
+do
+  echo "message $count is ${text}"
+done
+
+#echo "$list[@]"
+

@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+for word in "$@"
+do
+  if [[ "$word" == *' '* ]]
+  then
+     echo "$word contains at least 1 space"
+  fi
+done
+
+

@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+for name in *
+do
+  #echo "${name}"
+  if [[ -f "${name}" && -r "${name}" ]]
+  then
+     echo "${name}"
+     if [[  "${name}" == 04* ]]
+     then
+        echo File is a log.
+        /home/user/chap03/testline "${name}"
+     fi
+  fi
+done
+
+

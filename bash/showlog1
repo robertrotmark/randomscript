@@ -1,0 +1,13 @@
+# File: loginid1
+file="/home/user/daylogs/$1"
+
+IFS=:
+while read day host source msgnumber msgtext
+do
+   #echo "${source}"
+   if [[ "${source}" == "nmbd" ]]
+   then
+	echo "Day: $day host: $host source: $source"
+   fi
+done < "${file}"
+

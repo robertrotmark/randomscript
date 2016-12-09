@@ -1,0 +1,7 @@
+#File: nicechat
+
+talkback <<Myeof!
+	$LOGNAME is quite intelligent
+	Thank a classmate from $(hostname)
+	$(date '+%A') is your lucky day
+Myeof!

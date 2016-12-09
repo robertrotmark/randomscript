@@ -1,0 +1,24 @@
+# File: logsep1.3
+
+master=weeklist
+exec 6<"$master"
+exec 5>>totalerror
+while read -u6 file
+do
+  exec 3>"$file.good"
+  exec 4<"$file"
+  while read -u4 line
+  do
+    if [[ "$line" == *GOOD* ||
+          "$line" == *EXCELLENT* ]]
+    then 
+      echo "$line" >&3
+    elif [[ "$line" == *ERROR* ]]
+    then
+      echo "$line" >&5
+    fi
+  done
+  exec 3>&- 4<&-
+done
+exec 5>&- 6<&-
+

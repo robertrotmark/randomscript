@@ -1,0 +1,19 @@
+# FILE: ifcopy4
+
+source="$1"
+target="$1.backup"
+
+if [[ -f "$target" ]]
+then
+  backup="${target%??????}restore"
+  mv "$target" "$backup"
+fi
+
+
+[[ -f "$source" && -r "$source" ]] &&
+  cp "$source" "$target" &&
+  echo "file $source copied to $target"
+
+[[ -d "$source" && -r "$source" && -x "$source" ]] &&
+  cp -r "$source" "$target" &&
+  echo "directory $source copied to $target"

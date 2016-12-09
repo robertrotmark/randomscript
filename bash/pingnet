@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+PATH=/bin:/usr/bin
+#xtrace
+#set -x
+#Verbose
+#set -v 
+
+for (( i=1 ; i <= 255 ; i++ ))
+do
+   if ping -c 1 10.1.1.$i >/dev/null 2>/dev/null 
+   then
+      echo host is up: 10.1.1.$i
+   else
+      echo host is down: 10.1.1.$i
+   fi
+done
+
+

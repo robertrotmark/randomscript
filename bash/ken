@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+# outer loop gives the file names
+
+for file in 04*
+do
+
+# inner loop reads the file
+    while read line
+    do
+
+# test for the string clean
+    [[ "$line" == *clean* ]] && answer[index++]="$file contains $line"
+    done < "$file"
+
+done
+
+for result in "${answer[@]}"
+do
+    echo $result
+done

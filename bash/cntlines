@@ -1,0 +1,20 @@
+# File: loginid1
+file="/home/user/daylogs/$1"
+
+IFS=:
+while read day host source msgnumber msgtext
+do
+   #echo "${source}"
+   if [[ "${source}" == "nmbd" ]]
+   then
+	echo "Day: $day host: $host source: $source"
+   fi
+   (( line++ ))
+done < "${file}"
+if (( line >= 50 ))
+then
+   echo "${file}" got ${line} lines.
+else
+   echo "${file}" got lesser lines then 50.
+fi
+

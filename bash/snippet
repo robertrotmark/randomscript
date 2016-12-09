@@ -35,3 +35,12 @@ myeof)
 
 
 
+ping -c 1 www.aftonbladet.se >pinglist 2>$1
+
+find / -name '0411' 2>$1 | more
+
+
+
+
+
+

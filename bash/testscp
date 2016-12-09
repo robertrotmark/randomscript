@@ -5,7 +5,7 @@ PATH=/bin:/usr/bin
 #Verbose
 #set -v 
 
-for i in `find /home/user -executable -type f -ctime -1`
+for i in `find /home/user -executable -type f -mmin -20`
 do
   echo executable "$i"
 done
